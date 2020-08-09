@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--        扫描指定包下的注解-->
+
+    <context:component-scan base-package="com.cn.controller"></context:component-scan>
+
+<!--            设置静态资源可以访问-->
+
+    <mvc:default-servlet-handler/>
+
+<!--    注解配置-->
+
+    <mvc:annotation-driven/>
+
+<!--    配置试图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value=""></property>
+        <property name="suffix" value=""></property>
+    </bean>
+
+<!--&lt;!&ndash;    配置拦截器&ndash;&gt;-->
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/admin/*"/>-->
+<!--            <mvc:mapping path="/speaker/*"/>-->
+<!--            <mvc:mapping path="/subject/*"/>-->
+<!--            <mvc:mapping path="/video/*"/>-->
+<!--&lt;!&ndash;            放行的资源&ndash;&gt;-->
+<!--            <mvc:exclude-mapping path="/admin/login"/>-->
+<!--            <bean class="com.cn.interceptor.AdminInterceptor"></bean>-->
+<!--        </mvc:interceptor>-->
+
+<!--    </mvc:interceptors>-->
+    <!--配置 自定义 参数绑定(日期转换)-->
+<!--    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean" id="conversionService">-->
+<!--        &lt;!&ndash;写上自定义的转换器&ndash;&gt;-->
+<!--        <property name="converters">-->
+<!--            <list>-->
+<!--                &lt;!&ndash;日期 转换 &ndash;&gt;-->
+<!--                <bean class="com.cn.utils.DateConverter"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--添加到 MVC 注解里面-->
+<!--    <mvc:annotation-driven validator="validator" conversion-service="conversionService"/>-->
+
+
+
+</beans>
